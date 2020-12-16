@@ -6,53 +6,54 @@
 				'<div class="date-select">' +
 					'<div class="date-select popup">' +
 						'<span class="tip"></span>' +
+                        '<div class="date-select-body">' +
+                            '<div class="select year">' +
+                            '<a href="#" class="btn-arrow btn-up"><i class="icon icon-up"></i></a>' +
+                            '<div>' +
+                            '<span class="num">2014</span>' +
+                            '</div>' +
+                            '<a href="#" class="btn-arrow btn-down"><i class="icon icon-down"></i></a>' +
+                            '</div>' +
 
-						'<div class="select year">' +
-							'<a href="#" class="btn-arrow btn-up"><i class="icon icon-up"></i></a>' +
-							'<div>' +
-								'<span class="num">2014</span>' +
-							'</div>' +
-							'<a href="#" class="btn-arrow btn-down"><i class="icon icon-down"></i></a>' +
-						'</div>' +
-
-						'<div class="select month">' +
-							'<a href="#" class="btn-arrow btn-up"><i class="icon icon-up"></i></a>' +
-							'<div>' +
-								'<span class="num">01</span>' +
-								'<span class="text">September</span>' +
-							'</div>' +
-							'<a href="#" class="btn-arrow btn-down"><i class="icon icon-down"></i></a>' +
-						'</div>' +
+                            '<div class="select month">' +
+                            '<a href="#" class="btn-arrow btn-up"><i class="icon icon-up"></i></a>' +
+                            '<div>' +
+                            '<span class="num">01</span>' +
+                            '<span class="text">September</span>' +
+                            '</div>' +
+                            '<a href="#" class="btn-arrow btn-down"><i class="icon icon-down"></i></a>' +
+                            '</div>' +
 
 
-						'<div class="select day">' +
-							'<a href="#" class="btn-arrow btn-up"><i class="icon icon-up"></i></a>' +
-							'<div>' +
-								'<span class="num">01</span>' +
-								'<span class="text">Thursday</span>' +
-							'</div>' +
-							'<a href="#" class="btn-arrow btn-down"><i class="icon icon-down"></i></a>' +
-						'</div>' +
+                            '<div class="select day">' +
+                            '<a href="#" class="btn-arrow btn-up"><i class="icon icon-up"></i></a>' +
+                            '<div>' +
+                            '<span class="num">01</span>' +
+                            '<span class="text">Thursday</span>' +
+                            '</div>' +
+                            '<a href="#" class="btn-arrow btn-down"><i class="icon icon-down"></i></a>' +
+                            '</div>' +
 
-						'<div class="buttons">' +
-							'<a href="#" class="btn-cancel"><i class="fa fa-times"></i></a>' +
-							'<a href="#" class="btn-ok"><i class="fa fa-check"></i></a>' +
-						'</div>' +
+                            '<div class="buttons">' +
+                            '<a href="#" class="btn-cancel"><i class="ti-close"></i></a>' +
+                            '<a href="#" class="btn-ok"><i class="ti-check"></i></a>' +
+                            '</div>' +
+                        '</div>' +
 					'</div>' +
 				'</div>'
 		},
 		defaults: {
 			formatDate: function(date) {
-				var formatted = 
+				var formatted =
 					date.year()
-					+ '/' + 
+					+ '/' +
 					$.dateSelect.pad(date.month() , 2)
-					+ '/' + 
+					+ '/' +
 					$.dateSelect.pad(date.date(), 2) ;
 				return formatted;
 			} ,
 			parseDate: function(string) {
-				
+
 				var parts = string.match(/(\d{4})\/(\d{1,2})\/(\d{1,2})/);
 				if (parts && parts.length == 4) {
 					var date = new persianDate();
@@ -66,10 +67,8 @@
 			},
 			callbacks: {
 				onShow: function(widget) {
-					// Do nothing
 				},
 				onHide: function(widget) {
-					// Do nothing
 				}
 			},
 			container: 'body',
@@ -106,9 +105,12 @@
 			monthText.text( opts.strings.months[curMonth - 1] );
 		},
 		show: function(options) {
+
+
+
 			var obj = this,
 				opts = $.extend(true, {}, $.dateSelect.defaults, options),
-				markup = $(obj.templates.selector),
+				markup = $(obj.templates.selector) ,
 				date = new Date(opts.date);
 			// Get rid of another popups
 			obj.hide(true);
@@ -119,6 +121,9 @@
 				}
 				date = opts.parseDate(opts.element.val());
 			}
+
+
+
 			// Update current selection
 			obj.update(markup, date, opts);
 			// Bind events
@@ -233,6 +238,7 @@
 					element: el
 				});
 			});
+
 			// Does it have a button?
 			parent.find('[data-toggle=select]').on('click', function(e) {
 				e.preventDefault();
@@ -253,5 +259,5 @@
 		var el = $(this);
 		el.dateSelect();
 	});
-	
+
 })(jQuery);
