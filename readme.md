@@ -16,7 +16,7 @@
         });
     });
 ```
-<h1>>attribute های اختیاری</h1>
-<ul>
+<h1 dir="rtl">attribute های اختیاری</h1>
+<ul dir="rtl">
     <li>data-date : تاریخ پیشفرض</li>
 </ul>
