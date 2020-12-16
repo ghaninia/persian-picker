@@ -15,7 +15,13 @@
 	box-sizing: content-box;
 	box-shadow : 0 5px 10px rgba(0,0,0,.1) ;
 	border-radius: 10px ;
+    border: 1px #C8C8D6 solid ;
+}
+.date-select-body{
+	border-radius: 10px 10px 0 0;
 	overflow: hidden;
+	display: flex;
+	flex-direction: row-reverse;
 }
 
 .date-select .tip {
@@ -46,19 +52,19 @@
 }
 
 .date-select .select {
-	transition : all .1s ease ;
-	width: 100px;
-	height: 100px;
-	float: left;
-	margin-right: 1px;
-	color: #222;
-	position: relative;
-	cursor: default;
+	transition: all .1s ease;
+    /* width: 100px; */
+    flex: 1 1 33.3333%;
+    height: 100px;
+    /* float: left; */
+    /* margin-right: 1px; */
+    color: #222;
+    position: relative;
+    cursor: default;
 }
 
 .date-select .select.year {
-
-	margin-right: 0;
+	/* margin-right: 0; */
 }
 
 .date-select .select > div {
@@ -171,9 +177,10 @@
 }
 
 .date-select .buttons {
-	margin: 101px auto 0;
-	width: 302px;
-	border-top : 1px rgba(0,0,0,.05) solid  ;
+    position: absolute;
+    margin: 101px auto 0;
+    width: 302px;
+    border-top: 1px rgba(0,0,0,.05) solid;
 }
 
 .date-select .buttons a {
@@ -183,7 +190,7 @@
 	height: 40px;
 	color: #343434;
 	text-align: center;
-	line-height: 40px;
+	line-height: 50px;
 	font-size: 18px;
 	float: left;
 }
@@ -194,7 +201,7 @@
 }
 
 .date-select .buttons a.btn-ok {
-
+    border-radius: 0 0 5px 0;
 	width: 150px;
 	margin-left: 1px;
 }
@@ -203,7 +210,9 @@
 
 	background: #69B22C;
 }
-
+.date-select .buttons a.btn-cancel{
+	border-radius: 0 0 0 5px ;
+}
 .date-select .buttons a.btn-cancel:hover {
 
 	background: #D95005;
